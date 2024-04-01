@@ -1,0 +1,17 @@
+{% block title %}
+    Index
+{% endblock %}
+
+{% if recently_uploaded %}
+
+    <ol>
+    {% for question in recently_uploaded %}
+        <li><a href="{% url 'polls:detail' question.id %}">
+        {{ question.question_text }}
+        </li>
+    {% endfor %}
+    </ol>
+
+{% else %}
+    <p>Nothing recently_uploaded </p>
+{% endif %}
